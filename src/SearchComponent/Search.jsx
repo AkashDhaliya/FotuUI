@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import './Search.css';
 
 class SearchComponent extends React.Component {
@@ -12,9 +12,9 @@ class SearchComponent extends React.Component {
 
     render() {
         return (
-            <div>
-                <input className="Search-Query" type="text" placeholder="Search.." name="search" />
-            </div>
+            <section>
+                <input className="Search-Query" type="text" placeholder="Search photos here.." name="search" />
+            </section>
             
         );
     }
