@@ -19,11 +19,11 @@ code {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  font-size: calc(40px + 2vmin);
+  font-size: calc(20px + 2vmin);
   color: white;
 }
 
 .Fotu-header p{
-  margin : 10px;
+  margin : 5px;
   font-family: sans-serif;
 }
