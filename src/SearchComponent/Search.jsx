@@ -1,16 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-
 import "./Search.css";
 
-class SearchComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: "",
-      validSearchVal: false,
-    };
-  }
+function SearchComponent(props) {
+  const [searchValue, setSearchValue] = useState("");
+  const [validSearchVal, setValidSearchVal] = useState(false);
 
   /*This method is used to validate the input given by user onn the basis of key press. 
     Here the key code for the events gets fetached and validated
@@ -20,57 +14,55 @@ class SearchComponent extends React.Component {
     keyCode == 32 is for Space.
     */
 
-  searchInputCheck = (event) => {
+  function searchInputCheck(event) {
     let keyCode = event.charCode;
     if (
       (keyCode >= 65 && keyCode <= 90) ||
       (keyCode >= 97 && keyCode <= 122) ||
       keyCode == 32
     ) {
-      this.setState({ validSearchVal: true });
+      setValidSearchVal(true);
       return true;
     } else if (keyCode == 13) {
-      this.setState({ validSearchVal: true });
+      setValidSearchVal(true);
+      searchRef();
       event.preventDefault();
-      this.getSearchImageData();
     } else {
-      this.setState({ validSearchVal: false });
+      setValidSearchVal(false);
       return false;
     }
-  };
-
-  searchInputChange = (event) => {
-    if (this.state.validSearchVal) {
-      let value = event.target.value;
-      this.setState({ searchValue: value.trim() });
-    }
-  };
-
-  getSearchImageData = () => {
-    console.log("test");
-  };
-
-  render() {
-    return (
-      <section>
-        <span className = "Search-section">
-          <input
-            onKeyPress={this.searchInputCheck}
-            onChange={this.searchInputChange}
-            maxLength="20"
-            className="Search-Query"
-            type="text"
-            value={this.state.searchValue}
-            placeholder="Search photos here.."
-            name="search"
-          />
-          <span className="search-icon-span">
-            <FiSearch />
-          </span>
-        </span>
-      </section>
-    );
   }
+
+  function searchInputChange(event) {
+    if (validSearchVal) {
+      let value = event.target.value;
+      setSearchValue(value.trim());
+    }
+  }
+
+  function searchRef() {
+    props.searchHandler(searchValue);
+  }
+
+  return (
+    <section>
+      <span className="Search-section">
+        <input
+          onKeyPress={searchInputCheck}
+          onChange={searchInputChange}
+          maxLength="20"
+          className="Search-Query"
+          type="text"
+          value={searchValue}
+          placeholder="Search photos here.."
+          name="search"
+        />
+        <span className="search-icon-span">
+          <FiSearch onClick={searchRef} />
+        </span>
+      </span>
+    </section>
+  );
 }
 
 export default SearchComponent;
