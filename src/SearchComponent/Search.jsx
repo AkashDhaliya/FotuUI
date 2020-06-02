@@ -19,11 +19,11 @@ function SearchComponent(props) {
     if (
       (keyCode >= 65 && keyCode <= 90) ||
       (keyCode >= 97 && keyCode <= 122) ||
-      keyCode == 32
+      keyCode === 32
     ) {
       setValidSearchVal(true);
       return true;
-    } else if (keyCode == 13) {
+    } else if (keyCode === 13) {
       setValidSearchVal(true);
       searchRef();
       event.preventDefault();

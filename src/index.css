@@ -15,7 +15,6 @@ code {
 /*Application Header CSS*/
 
 .Fotu-header{
-  background:linear-gradient(0deg, red, blue);  /*#282c34; */
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
