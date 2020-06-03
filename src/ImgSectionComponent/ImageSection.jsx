@@ -11,10 +11,10 @@ class ImageSection extends React.Component {
     this.state = {
       photosList: [],
       noOfitems: 30,
-      imagesCount: 30,
+      imagesCount: 0,
       pageNo: 1,
       searchQuery: "",
-      path:"/photos",
+      path: "/photos",
       isError: false,
       isResponse: false,
     };
@@ -34,7 +34,9 @@ class ImageSection extends React.Component {
     };
     Requests(this.state.path, params).then(
       (response) => {
-        this.createImages(this.state.searchQuery==""?response.data:response.data.results);
+        this.createImages(
+          this.state.searchQuery === "" ? response.data : response.data.results
+        );
       },
       (error) => {
         this.setState({ isError: true, isResponse: true });
@@ -85,7 +87,8 @@ class ImageSection extends React.Component {
       this.setState(
         {
           path: "/search/photos",
-          photosList:[],
+          photosList: [],
+          imagesCount: 30,
           searchQuery: query,
           isError: false,
           isResponse: false,
@@ -101,7 +104,13 @@ class ImageSection extends React.Component {
       evt.target.scrollHeight - evt.target.scrollTop < 1200 &&
       this.state.pageNo !== pageNo
     ) {
-      this.getImages("/photos", pageNo);
+      this.setState(
+        {
+          path: this.state.searchQuery === "" ? "/photos" : "/search/photos",
+          pageNo: pageNo,
+        },
+        this.getImages
+      );
     }
   };
 
