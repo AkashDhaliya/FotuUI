@@ -34,7 +34,7 @@ class ImageSection extends React.Component {
     };
     Requests(this.state.path, params).then(
       (response) => {
-        this.createImages(this.state.searchQuery==""?response.data:response.results);
+        this.createImages(this.state.searchQuery==""?response.data:response.data.results);
       },
       (error) => {
         this.setState({ isError: true, isResponse: true });
@@ -85,6 +85,7 @@ class ImageSection extends React.Component {
       this.setState(
         {
           path: "/search/photos",
+          photosList:[],
           searchQuery: query,
           isError: false,
           isResponse: false,
