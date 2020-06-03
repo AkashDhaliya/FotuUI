@@ -6,7 +6,6 @@ import SearchComponent from "../SearchComponent/Search";
 
 const ListOfPhotos = "https://api.unsplash.com/photos";
 const searchUrl = "https://api.unsplash.com/search/photos";
-var Images = [];
 
 class ImageSection extends React.Component {
   constructor(props) {
@@ -15,7 +14,8 @@ class ImageSection extends React.Component {
     this.state = {
       photosList: [],
       noOfitems: 30,
-      pageNo:1,
+      imagesCount:30,
+      pageNo: 1,
       searchQuery: "",
       isError: false,
       isResponse: false,
@@ -58,8 +58,16 @@ class ImageSection extends React.Component {
         </div>
       );
     });
+
+    let existindData = this.state.photosList;
+    existindData = existindData.concat(images);
+    images = existindData.filter(function (item, index, data) {
+      let dataIndex = data.findIndex((ind) => ind.key === item.key);
+      return dataIndex === index;
+    });
+
     this.setState({
-      photosList: this.state.photosList.concat(images),
+      photosList: images,
       isError: false,
       isResponse: true,
     });
@@ -83,16 +91,21 @@ class ImageSection extends React.Component {
   };
 
   loadImages = (evt) => {
-    if (evt.target.scrollHeight - evt.target.scrollTop < 1200 && this.state.pageNo!=evt.currentTarget.childElementCount / this.state.noOfitems + 1) {
-      this.setState({
-        pageNo: evt.currentTarget.childElementCount / this.state.noOfitems + 1,
-      });
+    let pageNo = (this.state.imagesCount/this.state.noOfitems)+1;
+    if (
+      evt.target.scrollHeight - evt.target.scrollTop < 1200 &&
+      this.state.pageNo !== pageNo
+    ) {
       Requests(
         ListOfPhotos,
-        "?per_page=" + this.state.noOfitems + "&order_by=popular&page=" + this.state.pageNo
+        "?per_page=" + this.state.noOfitems + "&order_by=popular&page=" + pageNo
       ).then(
         (response) => {
           this.createImages(response.data);
+          this.setState({
+            pageNo: pageNo,
+            imagesCount:this.state.imagesCount+response.data.length
+          });
         },
         (error) => {
           this.setState({ isError: true, isResponse: true });
