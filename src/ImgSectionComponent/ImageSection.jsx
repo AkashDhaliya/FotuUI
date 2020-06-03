@@ -4,9 +4,6 @@ import "./ImageSection.css";
 import { FiDownload } from "react-icons/fi";
 import SearchComponent from "../SearchComponent/Search";
 
-const ListOfPhotos = "https://api.unsplash.com/photos";
-const searchUrl = "https://api.unsplash.com/search/photos";
-
 class ImageSection extends React.Component {
   constructor(props) {
     super(props);
@@ -14,27 +11,36 @@ class ImageSection extends React.Component {
     this.state = {
       photosList: [],
       noOfitems: 30,
-      imagesCount:30,
+      imagesCount: 30,
       pageNo: 1,
       searchQuery: "",
+      path:"/photos",
       isError: false,
       isResponse: false,
     };
   }
 
   componentDidMount() {
-    Requests(
-      ListOfPhotos,
-      "?per_page=" + this.state.noOfitems + "&order_by=popular"
-    ).then(
+    this.getImages();
+  }
+
+  getImages = () => {
+    let params = {
+      query: this.state.searchQuery,
+      per_page: this.state.noOfitems,
+      page: this.state.pageNo,
+      order_by: "Popular",
+      client_id: "a2WcvdBJ0Puu78DOVsuF3ZDnYGr404up7B_r9xZxrxA",
+    };
+    Requests(this.state.path, params).then(
       (response) => {
-        this.createImages(response.data);
+        this.createImages(this.state.searchQuery==""?response.data:response.results);
       },
       (error) => {
         this.setState({ isError: true, isResponse: true });
       }
     );
-  }
+  };
 
   createImages = (data) => {
     let images = data.map((item) => {
@@ -68,6 +74,7 @@ class ImageSection extends React.Component {
 
     this.setState({
       photosList: images,
+      imagesCount: this.state.imagesCount + data.length,
       isError: false,
       isResponse: true,
     });
@@ -75,42 +82,25 @@ class ImageSection extends React.Component {
 
   searchHandlerEvent = (query) => {
     if (query.length > 0) {
-      this.setState({ searchQuery: query, isError: false, isResponse: false });
-      Requests(
-        searchUrl,
-        "?per_page=" + this.state.noOfitems + "&order_by=popular&query=" + query
-      ).then(
-        (response) => {
-          this.createImages(response.data.results);
+      this.setState(
+        {
+          path: "/search/photos",
+          searchQuery: query,
+          isError: false,
+          isResponse: false,
         },
-        (error) => {
-          this.setState({ isError: true, isResponse: true });
-        }
+        this.getImages
       );
     }
   };
 
   loadImages = (evt) => {
-    let pageNo = (this.state.imagesCount/this.state.noOfitems)+1;
+    let pageNo = this.state.imagesCount / this.state.noOfitems + 1;
     if (
       evt.target.scrollHeight - evt.target.scrollTop < 1200 &&
       this.state.pageNo !== pageNo
     ) {
-      Requests(
-        ListOfPhotos,
-        "?per_page=" + this.state.noOfitems + "&order_by=popular&page=" + pageNo
-      ).then(
-        (response) => {
-          this.createImages(response.data);
-          this.setState({
-            pageNo: pageNo,
-            imagesCount:this.state.imagesCount+response.data.length
-          });
-        },
-        (error) => {
-          this.setState({ isError: true, isResponse: true });
-        }
-      );
+      this.getImages("/photos", pageNo);
     }
   };
 
