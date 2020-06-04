@@ -118,7 +118,7 @@ class ImageSection extends React.Component {
     if (!this.state.isError) {
       return (
         <React.Fragment>
-          <SearchComponent searchHandler={this.searchHandlerEvent} />
+          {/* <SearchComponent searchHandler={this.searchHandlerEvent} /> */}
           {this.state.isResponse && (
             <section className="images-section" onScroll={this.loadImages}>
               {this.state.photosList}
@@ -136,7 +136,11 @@ class ImageSection extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <p>Error while loading images. Please try again</p>
+          <section className="images-section" ref={this.imgRef}>
+              <div className="images-section-loading">
+                <img src={require("../Waiting-Logo.gif")} alt="Loading" />
+              </div>
+            </section>
         </React.Fragment>
       );
     }

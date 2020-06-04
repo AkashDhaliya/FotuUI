@@ -1,28 +1,62 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /*Application Header CSS*/
 
-.Fotu-header{
+.Fotu-header {
   display: flex;
+  background-color: #282c34;
   align-items: flex-end;
   justify-content: flex-start;
   font-size: calc(20px + 2vmin);
   color: white;
 }
 
-.Fotu-header p{
-  margin : 5px;
+.Fotu-header p {
+  margin: 10px;
   font-family: sans-serif;
+}
+
+.header-nav-items {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.header-nav-items > nav > ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-right: 30px;
+  font-size: calc(12px + 1vmin);
+  color: black;
+}
+
+.header-nav-items > nav > ul > li > a {
+  color: white;
+  padding: 0 2px 0 2px;
+  text-transform: none;
+  text-decoration: none;
+  padding: 0 15px 0px 15px;
+  border-bottom: 4px solid transparent;
+  transition: 0.1s;
+}
+
+/* Change the border-bottom-color of links on hover and .active class */
+.header-nav-items > nav > ul > li > a.active, .header-nav-items > nav > ul > li > a:hover {
+  border-bottom-color: #FA7D19;
 }

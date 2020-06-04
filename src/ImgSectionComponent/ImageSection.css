@@ -16,8 +16,8 @@
   height: inherit;
 }
 
-.images-section.loading img {
-  padding: 230px;
+.images-section-loading img {
+  padding: 220px;
 }
 
 .images-section::-webkit-scrollbar {
