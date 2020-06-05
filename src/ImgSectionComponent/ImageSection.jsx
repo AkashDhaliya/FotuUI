@@ -2,7 +2,7 @@ import React from "react";
 import Requests from "../RequestComponent/Requests";
 import "./ImageSection.css";
 import { FiDownload } from "react-icons/fi";
-import SearchComponent from "../SearchComponent/Search";
+
 
 class ImageSection extends React.Component {
   constructor(props) {
@@ -118,7 +118,6 @@ class ImageSection extends React.Component {
     if (!this.state.isError) {
       return (
         <React.Fragment>
-          {/* <SearchComponent searchHandler={this.searchHandlerEvent} /> */}
           {this.state.isResponse && (
             <section className="images-section" onScroll={this.loadImages}>
               {this.state.photosList}

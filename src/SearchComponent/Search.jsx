@@ -46,7 +46,7 @@ function SearchComponent(props) {
 
   return (
     <section>
-      <span className="Search-section">
+      <div className="Search-section">
         <input
           onKeyPress={searchInputCheck}
           onChange={searchInputChange}
@@ -60,7 +60,12 @@ function SearchComponent(props) {
         <span className="search-icon-span">
           <FiSearch onClick={searchRef} />
         </span>
-      </span>
+      </div>
+      <section className="images-section" >
+              <div className="images-section-loading">
+                <img src={require("../Waiting-Logo.gif")} alt="Loading" />
+              </div>
+            </section>
     </section>
   );
 }

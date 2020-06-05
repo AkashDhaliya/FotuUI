@@ -2,43 +2,48 @@ import React from "react";
 import "./App.css";
 import ImageComponent from "./ImgSectionComponent/ImageSection";
 import SearchComponent from "./SearchComponent/Search";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <header className="Fotu-header">
         <p> FOTU </p>
-        <Router>
-          <span className="header-nav-items">
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/home">Home</Link>
-                </li>
-                <li>
-                  <Link to="/search">Search</Link>
-                </li>
-                <li>
-                  <Link to="/random">Random</Link>
-                </li>
-              </ul>
-            </nav>
-          </span>
-
-          <Switch>
-            <Route path="/home">
-              <ImageComponent />
-            </Route>
-            <Route path="/search">
-              <SearchComponent />
-            </Route>
-            <Route path="/random">
-              <SearchComponent />
-            </Route>
-          </Switch>
-        </Router>
       </header>
+      <Router>
+        <span className="header-nav-items">
+          <nav>
+            <ul>
+              <li>
+                <NavLink exact activeClassName="active" to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active" to="/search">
+                  Search
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active" to="/random">
+                  Random
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </span>
+
+        <Switch>
+          <Route exact path="/" component={ImageComponent}></Route>
+          <Route exact path="/search" component={SearchComponent}></Route>
+          <Route exact path="/random" component={SearchComponent}></Route>
+        </Switch>
+      </Router>
       {/* <ImageComponent /> */}
     </div>
   );
