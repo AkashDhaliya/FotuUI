@@ -1,73 +1,27 @@
-import React, { useState } from "react";
-import { FiSearch } from "react-icons/fi";
-import "./Search.css";
+import React from "react";
+import ImageComponent from "../ImgSectionComponent/ImageSection";
+import SearchQuery from "./SearchQuery";
 
-function SearchComponent(props) {
-  const [searchValue, setSearchValue] = useState("");
-  const [validSearchVal, setValidSearchVal] = useState(false);
-
-  /*This method is used to validate the input given by user onn the basis of key press. 
-    Here the key code for the events gets fetached and validated
-    keyCode >= 65 && keyCode <= 90 is from A to  Z.
-    keyCode >= 97 && keyCode <= 122 is from A to  Z.
-    keyCode == 13 is for Enter.
-    keyCode == 32 is for Space.
-    */
-
-  function searchInputCheck(event) {
-    let keyCode = event.charCode;
-    if (
-      (keyCode >= 65 && keyCode <= 90) ||
-      (keyCode >= 97 && keyCode <= 122) ||
-      keyCode === 32
-    ) {
-      setValidSearchVal(true);
-      return true;
-    } else if (keyCode === 13) {
-      setValidSearchVal(true);
-      searchRef();
-      event.preventDefault();
-    } else {
-      setValidSearchVal(false);
-      return false;
-    }
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: "",
+    };
   }
 
-  function searchInputChange(event) {
-    if (validSearchVal) {
-      let value = event.target.value;
-      setSearchValue(value.trim());
-    }
-  }
+  getSearchResults = (query) => {
+    this.setState({ query: query });
+  };
 
-  function searchRef() {
-    props.searchHandler(searchValue);
+  render() {
+    return (
+      <React.Fragment>
+        <SearchQuery query={this.getSearchResults} />
+        <ImageComponent searchQuery={this.state.query} />
+      </React.Fragment>
+    );
   }
-
-  return (
-    <section>
-      <div className="Search-section">
-        <input
-          onKeyPress={searchInputCheck}
-          onChange={searchInputChange}
-          maxLength="20"
-          className="Search-Query"
-          type="text"
-          value={searchValue}
-          placeholder="Search photos here.."
-          name="search"
-        />
-        <span className="search-icon-span">
-          <FiSearch onClick={searchRef} />
-        </span>
-      </div>
-      <section className="images-section" >
-              <div className="images-section-loading">
-                <img src={require("../Waiting-Logo.gif")} alt="Loading" />
-              </div>
-            </section>
-    </section>
-  );
 }
 
-export default SearchComponent;
+export default Search;

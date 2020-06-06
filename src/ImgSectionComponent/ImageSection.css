@@ -1,4 +1,6 @@
 .images-section {
+  display: flex;
+  flex-wrap: wrap;
   border: 3px solid transparent;
   border-radius: 5px;
   height: 45rem;
@@ -11,9 +13,9 @@
     0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
 }
 
-.images-section-loading{
+.images-section-loading {
   background: #66cfff;
-  height: inherit;
+  width: -webkit-fill-available;
 }
 
 .images-section-loading img {
@@ -25,8 +27,6 @@
 }
 
 .flex-images {
-  display: inline-flex;
-  flex: auto;
   padding: 0.25rem;
   width: 24.3%;
   transition: all 0.3s ease-in-out;
@@ -44,14 +44,15 @@
 
 .download-photo {
   display: none;
+  float: right;
   max-height: 17px;
   padding: 3px;
   background-color: #fff;
-  position: relative;
+  position: absolute;
   color: black;
   border-radius: 50%;
-  top: 270px;
-  right: 25px;
+  bottom: 12px;
+  right: 7px;
 }
 
 .download-photo:hover {

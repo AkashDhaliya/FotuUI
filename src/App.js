@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import ImageComponent from "./ImgSectionComponent/ImageSection";
-import SearchComponent from "./SearchComponent/Search";
+import Search from "./SearchComponent/Search";
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,13 +40,13 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={ImageComponent}></Route>
-          <Route exact path="/search" component={SearchComponent}></Route>
-          <Route exact path="/random" component={SearchComponent}></Route>
+          <Route exact path="/search" component={Search}></Route>
+          <Route exact path="/random" component={Search}></Route>
         </Switch>
       </Router>
       {/* <ImageComponent /> */}
     </div>
-  );
+  )
 }
 
 export default App;

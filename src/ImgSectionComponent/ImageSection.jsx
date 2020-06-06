@@ -21,7 +21,17 @@ class ImageSection extends React.Component {
   }
 
   componentDidMount() {
-    this.getImages();
+    if(this.props.searchQuery!==undefined){
+      this.searchHandlerEvent(this.props.searchQuery);
+    }else{
+      this.getImages();
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(this.props.searchQuery!==undefined && this.props.searchQuery !==nextProps.searchQuery){
+      this.searchHandlerEvent(nextProps.searchQuery);
+    }
   }
 
   getImages = () => {
