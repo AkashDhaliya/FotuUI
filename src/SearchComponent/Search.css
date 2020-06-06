@@ -1,29 +1,31 @@
 .Search-Query {
   padding: 0;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 0.125rem solid #0882e5;
-    width: -webkit-fill-available;
-    outline: none;
-    font-size: calc(14px + 1vmin);
-    transition: all .3s ease-in-out;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.125rem solid #0882e5;
+  width: -webkit-fill-available;
+  outline: none;
+  font-size: calc(14px + 1vmin);
+  transition: all 0.3s ease-in-out;
 }
 
 .Search-section {
   position: relative;
   display: flex;
-  margin: 20px 0px 20px 30px;
-  width: 30%;
+  width: 50%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 
 .search-icon-span {
-  padding: 0.5rem.5rem .5rem 0;
+  padding: 0.5rem.5rem 0.5rem 0;
   color: #0882e5;
   font-size: calc(14px + 1vmin);
 }
 
-.search-icon-span>svg:hover {
-  cursor:pointer;
+.search-icon-span > svg:hover {
+  cursor: pointer;
 }
 
 .search-icon-span:hover {

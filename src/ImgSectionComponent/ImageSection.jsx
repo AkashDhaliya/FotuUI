@@ -63,7 +63,7 @@ class ImageSection extends React.Component {
             alt={item.alt_description}
             title={item.alt_description}
             width="100%"
-            height="300"
+            height="100%"
           ></img>
           <a
             className="download-photo"

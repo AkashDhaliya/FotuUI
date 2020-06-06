@@ -27,8 +27,9 @@
 }
 
 .flex-images {
-  padding: 0.25rem;
-  width: 24.3%;
+  padding: 0.07rem;
+  width: 24.8%;
+  height: 300px;
   transition: all 0.3s ease-in-out;
 }
 
