@@ -52,7 +52,6 @@ code {
   border-top-right-radius: 5px;
 }
 
-
 .header-nav-items > nav > ul > li > a {
   color: white;
   text-transform: none;
@@ -63,4 +62,16 @@ code {
   border-bottom: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+
+
+.Fotu-footer {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+}
+
+.Fotu-footer > div {
+  margin: auto;
 }

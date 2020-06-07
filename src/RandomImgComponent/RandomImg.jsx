@@ -35,7 +35,7 @@ function RandomImg() {
   }, [setRandomPic]);
 
   return randomPic.length !== 0 ? (
-    <section className="images-section">
+    <section className="images-section randomImg">
       <div className="random-flex-image">{randomPic}</div>
     </section>
   ) : (

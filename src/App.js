@@ -46,7 +46,14 @@ function App() {
           <Route exact path="/random" component={RandomImg}></Route>
         </Switch>
       </Router>
-      {/* <ImageComponent /> */}
+      <footer className="Fotu-footer">
+        <div>
+        <p> Created by Akay Contact me at <a href="">Akash.dhaliya@gmail.com</a> </p>
+        <p> Images source <a href="https://unsplash.com/">Unsplash&nbsp;</a>Code source <a href="https://github.com/AkashDhaliya/Fotu.git">Github</a></p>
+
+        </div>
+        
+      </footer>
     </div>
   )
 }
