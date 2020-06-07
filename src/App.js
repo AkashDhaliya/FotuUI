@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import ImageComponent from "./ImgSectionComponent/ImageSection";
 import Search from "./SearchComponent/Search";
+import RandomImg from "./RandomImgComponent/RandomImg";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,7 +43,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={ImageComponent}></Route>
           <Route exact path="/search" component={Search}></Route>
-          <Route exact path="/random" component={Search}></Route>
+          <Route exact path="/random" component={RandomImg}></Route>
         </Switch>
       </Router>
       {/* <ImageComponent /> */}

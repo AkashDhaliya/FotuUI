@@ -1,8 +1,8 @@
 import React from "react";
 import Requests from "../RequestComponent/Requests";
+import Loading from "../LoadingComponent/Loading";
 import "./ImageSection.css";
 import { FiDownload } from "react-icons/fi";
-
 
 class ImageSection extends React.Component {
   constructor(props) {
@@ -21,15 +21,18 @@ class ImageSection extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.searchQuery!==undefined){
+    if (this.props.searchQuery !== undefined) {
       this.searchHandlerEvent(this.props.searchQuery);
-    }else{
+    }else {
       this.getImages();
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    if(this.props.searchQuery!==undefined && this.props.searchQuery !==nextProps.searchQuery){
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.searchQuery !== undefined &&
+      this.props.searchQuery !== nextProps.searchQuery
+    ) {
       this.searchHandlerEvent(nextProps.searchQuery);
     }
   }
@@ -108,6 +111,19 @@ class ImageSection extends React.Component {
     }
   };
 
+  getRandomPic = () => {
+    this.setState(
+      {
+        path: "/photos/random",
+        photosList: [],
+        imagesCount: 1,
+        searchQuery: "",
+        isError: false,
+        isResponse: false,
+      },
+      this.getImages
+    );
+  };
   loadImages = (evt) => {
     let pageNo = this.state.imagesCount / this.state.noOfitems + 1;
     if (
@@ -134,22 +150,14 @@ class ImageSection extends React.Component {
             </section>
           )}
           {!this.state.isResponse && (
-            <section className="images-section" ref={this.imgRef}>
-              <div className="images-section-loading">
-                <img src={require("../Waiting-Logo.gif")} alt="Loading" />
-              </div>
-            </section>
+            <Loading/>
           )}
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          <section className="images-section" ref={this.imgRef}>
-              <div className="images-section-loading">
-                <img src={require("../Waiting-Logo.gif")} alt="Loading" />
-              </div>
-            </section>
+          
         </React.Fragment>
       );
     }
