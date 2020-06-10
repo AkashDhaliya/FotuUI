@@ -1,6 +1,7 @@
 import React from "react";
 import Requests from "../RequestComponent/Requests";
 import Loading from "../LoadingComponent/Loading";
+import Download from "../DownloadComponent/Download";
 import "./ImageSection.css";
 import { FiDownload } from "react-icons/fi";
 
@@ -17,13 +18,14 @@ class ImageSection extends React.Component {
       path: "/photos",
       isError: false,
       isResponse: false,
+      downloadImageId: "",
     };
   }
 
   componentDidMount() {
     if (this.props.searchQuery !== undefined) {
       this.searchHandlerEvent(this.props.searchQuery);
-    }else {
+    } else {
       this.getImages();
     }
   }
@@ -68,14 +70,14 @@ class ImageSection extends React.Component {
             width="100%"
             height="100%"
           ></img>
-          <a
+          <button
+            link={item.links.download}
             className="download-photo"
-            href={item.links.download_location}
+            onClick={this.downloadImage}
             title="Download"
-            download={item.alt_description}
           >
             <FiDownload />
-          </a>
+          </button>
         </div>
       );
     });
@@ -93,6 +95,10 @@ class ImageSection extends React.Component {
       isError: false,
       isResponse: true,
     });
+  };
+
+  downloadImage = (e) => {
+    this.setState({ downloadImageId: e.currentTarget.getAttribute("link") });
   };
 
   searchHandlerEvent = (query) => {
@@ -146,18 +152,17 @@ class ImageSection extends React.Component {
         <React.Fragment>
           {this.state.isResponse && (
             <section className="images-section" onScroll={this.loadImages}>
+              <Download link={this.state.downloadImageId} />
               {this.state.photosList}
             </section>
           )}
-          {!this.state.isResponse && (
-            <Loading/>
-          )}
+          {!this.state.isResponse && <Loading />}
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          
+          <Loading />
         </React.Fragment>
       );
     }

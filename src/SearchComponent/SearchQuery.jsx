@@ -52,6 +52,7 @@ function SearchQuery(props) {
           onKeyPress={detectEnterPress}
           onChange={searchInputChange}
           maxLength="50"
+          autoComplete="off"
           className="Search-Query"
           type="text"
           value={searchValue}

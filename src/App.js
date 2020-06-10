@@ -48,7 +48,7 @@ function App() {
       </Router>
       <footer className="Fotu-footer">
         <div>
-        <p> Created by Akay Contact me at <a href="">Akash.dhaliya@gmail.com</a> </p>
+        <p> Created by Akash. Contact me at <strong>Akash.dhaliya@gmail.com</strong></p>
         <p> Images source <a href="https://unsplash.com/">Unsplash&nbsp;</a>Code source <a href="https://github.com/AkashDhaliya/Fotu.git">Github</a></p>
 
         </div>
