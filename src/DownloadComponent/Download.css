@@ -58,6 +58,7 @@
 }
 
 .modal-content ul > li > a {
+  display: block;
   text-decoration: none;
   color: inherit;
 }
