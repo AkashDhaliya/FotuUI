@@ -36,6 +36,11 @@ function App() {
                   Random
                 </NavLink>
               </li>
+              <li>
+                <NavLink exact activeClassName="active" to="/chat">
+                  Message us
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </span>
@@ -44,6 +49,7 @@ function App() {
           <Route exact path="/" component={ImageComponent}></Route>
           <Route exact path="/search" component={Search}></Route>
           <Route exact path="/random" component={RandomImg}></Route>
+          <Route exact path="/chat" component={RandomImg}></Route>
         </Switch>
       </Router>
       <footer className="Fotu-footer">

@@ -107,6 +107,7 @@ class ImageSection extends React.Component {
         {
           path: "/search/photos",
           photosList: [],
+          downloadImageId: "",
           imagesCount: 30,
           searchQuery: query,
           isError: false,
@@ -140,6 +141,7 @@ class ImageSection extends React.Component {
         {
           path: this.state.searchQuery === "" ? "/photos" : "/search/photos",
           pageNo: pageNo,
+          downloadImageId: "",
         },
         this.getImages
       );

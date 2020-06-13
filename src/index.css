@@ -57,7 +57,7 @@ code {
   text-transform: none;
   text-decoration: none;
   transition: 0.1s;
-  padding: 6px 20px 6px 20px;
+  padding: .4rem 1rem .01rem;
   border: 2px solid transparent;
   border-bottom: 0;
   border-top-left-radius: 5px;

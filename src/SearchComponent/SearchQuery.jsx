@@ -5,13 +5,6 @@ import "./Search.css";
 function SearchQuery(props) {
   const [searchValue, setSearchValue] = useState("");
 
-  function searchInputChange(event) {
-    let value = event.target.value;
-    if (value !== "") {
-      setSearchValue(value);
-    }
-  }
-
   /*This method is used to validate the input given by user onn the basis of key press. 
     Here the key code for the events gets fetached and validated
     keyCode >= 65 && keyCode <= 90 is from A to  Z.
@@ -20,12 +13,12 @@ function SearchQuery(props) {
     keyCode == 32 is for Space.
     */
 
-   function detectEnterPress(event) {
-    let keyCode = event.charCode;
+   function detectKeyPress(event) {
+    let keyCode = event.keyCode;
     if (
       (keyCode >= 65 && keyCode <= 90) ||
       (keyCode >= 97 && keyCode <= 122) ||
-      keyCode === 32
+      keyCode === 32 || keyCode === 0
     ) {
       return true;
     } else if (keyCode === 13) {
@@ -49,8 +42,8 @@ function SearchQuery(props) {
           <FiSearch onClick={submitSearch} />
         </span>
         <input
-          onKeyPress={detectEnterPress}
-          onChange={searchInputChange}
+          onKeyDown={detectKeyPress}
+          onChange={(e)=>setSearchValue(e.target.value)}
           maxLength="50"
           autoComplete="off"
           className="Search-Query"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Requests from "../RequestComponent/Requests";
 import Loading from "../LoadingComponent/Loading";
 import { FiDownload } from "react-icons/fi";
@@ -6,24 +6,27 @@ import { FaSyncAlt } from "react-icons/fa";
 import Download from "../DownloadComponent/Download";
 import "./RandomImg.css";
 
-function RandomImg() {
-  const [randomPic, setRandomPic] = useState([]);
-  const [picId, setPicId] = useState("");
-  const [download, setDownload] = useState("");
+class RandomImg extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      randomPic: [],
+      picId: "",
+      download: "",
+    };
+  }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  componentDidMount() {
+    this.fetchData();
+  }
 
-  const fetchData=async ()=>{
+  fetchData = async () => {
     let params = {
       per_page: 1,
       order_by: "Popular",
       client_id: "a2WcvdBJ0Puu78DOVsuF3ZDnYGr404up7B_r9xZxrxA",
     };
-    setRandomPic("");
-    setPicId("");
-    setDownload("")
+    this.setState({randomPic:[],picId:"",download:""})
     await Requests("/photos/random", params).then(
       (response) => {
         let item = response.data;
@@ -34,36 +37,32 @@ function RandomImg() {
             title={item.alt_description}
           ></img>
         );
-        setRandomPic(image);
-        setPicId(item.links.download);
+        this.setState({randomPic:image,picId:item.links.download})
       },
       (error) => {}
     );
   };
 
-  function downloadImage(){
-    setDownload("")
-    setDownload(picId);
-  };
-
-  return randomPic.length !== 0 ? (
-    <section className="images-section randomImg">
-      <Download link={download} />
-      <div className="randomImg-header-btns">
-        <span>
-          <button title="refresh" onClick={fetchData}>
-            <FaSyncAlt />
-          </button>
-          <button title="Download" onClick={downloadImage}>
-            <FiDownload />
-          </button>
-        </span>
-      </div>
-      <div className="random-flex-image">{randomPic}</div>
-    </section>
-  ) : (
-    <Loading />
-  );
+  render() {
+    return this.state.randomPic.length !== 0 ? (
+      <section className="images-section randomImg">
+        <Download link={this.state.download} />
+        <div className="randomImg-header-btns">
+          <span>
+            <button title="refresh" onClick={this.fetchData}>
+              <FaSyncAlt />
+            </button>
+            <button title="Download" onClick={()=>this.setState({download:this.state.picId})}>
+              <FiDownload />
+            </button>
+          </span>
+        </div>
+        <div className="random-flex-image">{this.state.randomPic}</div>
+      </section>
+    ) : (
+      <Loading />
+    );
+  }
 }
 
 export default RandomImg;
