@@ -3,6 +3,7 @@ import "./App.css";
 import ImageComponent from "./ImgSectionComponent/ImageSection";
 import Search from "./SearchComponent/Search";
 import RandomImg from "./RandomImgComponent/RandomImg";
+import Chat from './ChatComponent/Chat';
 
 import {
   BrowserRouter as Router,
@@ -38,7 +39,7 @@ function App() {
               </li>
               <li>
                 <NavLink exact activeClassName="active" to="/chat">
-                  Message us
+                  Message  us
                 </NavLink>
               </li>
             </ul>
@@ -49,7 +50,7 @@ function App() {
           <Route exact path="/" component={ImageComponent}></Route>
           <Route exact path="/search" component={Search}></Route>
           <Route exact path="/random" component={RandomImg}></Route>
-          <Route exact path="/chat" component={RandomImg}></Route>
+          <Route exact path="/chat" component={Chat}></Route>
         </Switch>
       </Router>
       <footer className="Fotu-footer">

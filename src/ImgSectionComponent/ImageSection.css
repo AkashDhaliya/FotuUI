@@ -15,7 +15,7 @@
 }
 
 .images-section::-webkit-scrollbar {
-  display: none; /* width of the entire scrollbar */
+  display: none;
 }
 
 .flex-images {
