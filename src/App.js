@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
-import ImageComponent from "./ImgSectionComponent/ImageSection";
-import Search from "./SearchComponent/Search";
-import RandomImg from "./RandomImgComponent/RandomImg";
-import Chat from './ChatComponent/Chat';
-
+import ImageComponent from "./Components/ImgSectionComponent/ImageSection";
+import Search from "./Components/SearchComponent/Search";
+import RandomImg from "./Components/RandomImgComponent/RandomImg";
+import Chat from "./Components/ChatComponent/Chat";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,7 +38,7 @@ function App() {
               </li>
               <li>
                 <NavLink exact activeClassName="active" to="/chat">
-                  Message  us
+                  Message us
                 </NavLink>
               </li>
             </ul>
@@ -55,14 +54,20 @@ function App() {
       </Router>
       <footer className="Fotu-footer">
         <div>
-        <p> Created by Akash. Contact me at <strong>Akash.dhaliya@gmail.com</strong></p>
-        <p> Images source <a href="https://unsplash.com/">Unsplash&nbsp;</a>Code source <a href="https://github.com/AkashDhaliya/Fotu.git">Github</a></p>
-
+          <p>
+            {" "}
+            Created by Akash. Contact me at{" "}
+            <strong>Akash.dhaliya@gmail.com</strong>
+          </p>
+          <p>
+            {" "}
+            Images source <a href="https://unsplash.com/">Unsplash&nbsp;</a>Code
+            source <a href="https://github.com/AkashDhaliya/Fotu.git">Github</a>
+          </p>
         </div>
-        
       </footer>
     </div>
-  )
+  );
 }
 
 export default App;
