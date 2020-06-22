@@ -5,9 +5,6 @@ import SearchQuery from "./SearchQuery";
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      query: "",
-    };
   }
 
   getSearchResults = (query) => {
@@ -18,7 +15,7 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         <SearchQuery query={this.getSearchResults} />
-        <ImageComponent searchQuery={this.state.query} />
+        <ImageComponent searchQuery={this.props.query} />
       </React.Fragment>
     );
   }

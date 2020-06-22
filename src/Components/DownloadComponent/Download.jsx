@@ -1,5 +1,6 @@
 import React from "react";
 import "./Download.css";
+import { CLIENT_ID } from "../../Constants/Const";
 
 class Download extends React.Component {
   constructor(props) {
@@ -13,11 +14,9 @@ class Download extends React.Component {
     window.addEventListener("click", this.windowOnClick);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps !== undefined && nextProps.link.length !== 0) {
-      let link =
-        nextProps.link +
-        "?client_id=a2WcvdBJ0Puu78DOVsuF3ZDnYGr404up7B_r9xZxrxA&w=";
+  componentDidUpdate(prevProps){
+    if (this.props.link !== undefined && this.props.link.length !== 0 && prevProps.link!==this.props.link) {
+      let link = `${this.props.link}?client_id=${CLIENT_ID}`;
       let items = (
         <ul>
           <li>
@@ -44,6 +43,7 @@ class Download extends React.Component {
   toggleModle = () => {
     let modal = document.querySelector(".modal");
     modal.classList.toggle("show-modal");
+    this.props.resetLink("");
   };
 
   windowOnClick = (event) => {
