@@ -1,0 +1,9 @@
+.LoadingImg {
+  background: #66cfff!important;
+  height: 36rem!important;
+}
+
+.LoadingImg > div {
+  margin: auto;
+  width: -webkit-fill-available;
+}
