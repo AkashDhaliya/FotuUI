@@ -20,17 +20,17 @@ class Download extends React.Component {
       let items = (
         <ul>
           <li>
-            <a href={link + "640"} download target="_blank">
+            <a href={link + "640"} download target="_blank" rel="noopener noreferrer nofollow">
               Small
             </a>
           </li>
           <li>
-            <a href={link + "1920"} download target="_blank">
+            <a href={link + "1920"} download target="_blank" rel="noopener noreferrer nofollow">
               Medium
             </a>
           </li>
           <li>
-            <a href={link + "2400"} download target="_blank">
+            <a href={link + "2400"} download target="_blank" rel="noopener noreferrer nofollow">
               Large
             </a>
           </li>

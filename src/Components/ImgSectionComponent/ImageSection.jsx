@@ -6,9 +6,6 @@ import { FiDownload } from "react-icons/fi";
 import { NO_OF_ITEMS } from "../../Constants/Const";
 
 class ImageSection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   downloadImage = (e) => {
     this.props.downloadImg(e.currentTarget.getAttribute("link"));
@@ -23,8 +20,9 @@ class ImageSection extends React.Component {
     ) {
       this.props.fetchStatus();
       this.props.getImages({
-        query: "",
+        query: this.props.search,
         pageNo: pageNo,
+        path: this.props.path
       });
     }
   };
