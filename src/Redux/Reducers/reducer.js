@@ -4,6 +4,7 @@ import {
   ERROR_OCCURRED,
   REQUEST_PROGRESS,
   SEARCH_IMAGE,
+  RANDOM_IMG,
   DOWNLOAD_IMG
 } from "../../Constants/Const";
 
@@ -12,6 +13,7 @@ let initialState = {
   searchQuery: "",
   download:"",
   isFetching: false,
+  randomImg:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -27,6 +29,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         photosList: imgs,
         page_no: action.payload.pageNo,
+        isFetching: false,
+      };
+
+      case RANDOM_IMG:
+      return {
+        ...state,
+        randomImg: action.payload.data,
         isFetching: false,
       };
 

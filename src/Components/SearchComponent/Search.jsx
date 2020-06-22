@@ -22,11 +22,11 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Search extends React.Component {
-  constructor(props){
-    super(props)
-    this.state={
-      search:""
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+    };
   }
   componentDidMount() {
     this.props.resetData();
@@ -37,7 +37,7 @@ class Search extends React.Component {
   }
 
   getSearchResults = (query) => {
-    this.setState({search:query})
+    this.setState({ search: query });
     this.props.getImages({
       query: query,
       pageNo: 1,
@@ -49,7 +49,11 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         <SearchQuery query={this.getSearchResults} />
-        <ImageComponent {...this.props} path={SEARCHURLPATH} search={this.state.search} />
+        <ImageComponent
+          {...this.props}
+          path={SEARCHURLPATH}
+          search={this.state.search}
+        />
       </React.Fragment>
     );
   }

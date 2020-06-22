@@ -1,6 +1,9 @@
 import {
   CLIENT_ID,
   NO_OF_ITEMS,
+  NO_OF_ITEMS_RANDOM,
+  RANDOMURLPATH,
+  RANDOM_IMG,
   ORDER_BY,
   REQUEST_PROGRESS,
   DATA_LOADED,
@@ -47,18 +50,17 @@ export function getImages(param) {
       page: param.pageNo,
       order_by: ORDER_BY,
       client_id: CLIENT_ID,
-      per_page: NO_OF_ITEMS,
+      per_page: param.path.includes(RANDOMURLPATH)?NO_OF_ITEMS_RANDOM:NO_OF_ITEMS,
     };
     return Requests(param.path, params).then(
       (response) => {
-        dispatch({
-          type: DATA_LOADED,
-          payload: {
-            pageNo: param.pageNo,
-            data: param.query === "" ? response.data : response.data.results,
-            isFetchiing: false,
-          },
-        });
+          dispatch({
+            type: param.path.includes(RANDOMURLPATH)?RANDOM_IMG:DATA_LOADED ,
+            payload: {
+              pageNo: param.pageNo,
+              data: param.query === "" ? response.data : response.data.results,
+            },
+          });
       },
       (error) => {
         dispatch({ type: ERROR_OCCURRED, payload: error });
