@@ -5,15 +5,15 @@ import {
   REQUEST_PROGRESS,
   SEARCH_IMAGE,
   RANDOM_IMG,
-  DOWNLOAD_IMG
+  DOWNLOAD_IMG,
 } from "../../Constants/Const";
 
 let initialState = {
   photosList: [],
-  searchQuery: "",
-  download:"",
+  search: "",
+  download: "",
   isFetching: false,
-  randomImg:[]
+  randomImg: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -32,7 +32,7 @@ const rootReducer = (state = initialState, action) => {
         isFetching: false,
       };
 
-      case RANDOM_IMG:
+    case RANDOM_IMG:
       return {
         ...state,
         randomImg: action.payload.data,
@@ -43,16 +43,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         photosList: action.payload,
-        page_no:1, 
+        page_no: 1,
+        search: "",
       };
 
-      case SEARCH_IMAGE:
+    case SEARCH_IMAGE:
       return {
         ...state,
-        searchQuery: action.payload,
+        search: action.payload,
       };
 
-      case DOWNLOAD_IMG:
+    case DOWNLOAD_IMG:
       return {
         ...state,
         download: action.payload,

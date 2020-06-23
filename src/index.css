@@ -16,11 +16,14 @@ code {
 
 .Fotu-header {
   display: flex;
+  width: 100%;
   background-color: #282c34;
   align-items: flex-end;
+  position: fixed;
   justify-content: flex-start;
   font-size: calc(20px + 2vmin);
   color: white;
+  z-index: 2;
   border-bottom: 2px solid #fff;
 }
 
@@ -33,6 +36,7 @@ code {
   position: absolute;
   top: 35px;
   right: 30px;
+  z-index: 2;
 }
 
 .header-nav-items > nav > ul {
@@ -57,14 +61,12 @@ code {
   text-transform: none;
   text-decoration: none;
   transition: 0.1s;
-  padding: .4rem 1rem .01rem;
+  padding: 0.4rem 1rem 0.01rem;
   border: 2px solid transparent;
   border-bottom: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-
-
 
 .Fotu-footer {
   background-color: #000;

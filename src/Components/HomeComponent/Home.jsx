@@ -18,7 +18,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getImages({
-        query: this.props.searchQuery,
+        query: this.props.search,
         pageNo: 1,
         path:LISTURLPATH
       });

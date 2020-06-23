@@ -6,6 +6,7 @@ import {
   resetData,
   fetchStatus,
   downloadImg,
+  searchImage,
 } from "../../Redux/Actions/actions";
 import { connect } from "react-redux";
 import { SEARCHURLPATH } from "../../Constants/Const";
@@ -16,18 +17,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getImages: (param) => dispatch(getImages(param)),
+  searchImage: (query) => dispatch(searchImage(query)),
   fetchStatus: () => dispatch(fetchStatus()),
   downloadImg: (id) => dispatch(downloadImg(id)),
   resetData: () => dispatch(resetData()),
 });
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: "",
-    };
-  }
+
   componentDidMount() {
     this.props.resetData();
   }
@@ -37,9 +34,9 @@ class Search extends React.Component {
   }
 
   getSearchResults = (query) => {
-    this.setState({ search: query });
+    this.props.searchImage(query);
     this.props.getImages({
-      query: query,
+      query: this.props.search,
       pageNo: 1,
       path: SEARCHURLPATH,
     });
@@ -52,7 +49,7 @@ class Search extends React.Component {
         <ImageComponent
           {...this.props}
           path={SEARCHURLPATH}
-          search={this.state.search}
+          search={this.props.search}
         />
       </React.Fragment>
     );
