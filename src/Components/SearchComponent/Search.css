@@ -14,7 +14,7 @@
   display: flex;
   width: 50%;
   margin: auto;
-  margin-top: 1%;
+  margin-top: 5%;
   margin-bottom: 2%;
 }
 
@@ -30,4 +30,8 @@
 
 .search-icon-span:hover {
   color: #0882e5;
+}
+
+.SearchComponent .images-section{
+  margin-top: 2%!important;
 }

@@ -24,7 +24,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Search extends React.Component {
-
   componentDidMount() {
     this.props.resetData();
   }
@@ -36,7 +35,7 @@ class Search extends React.Component {
   getSearchResults = (query) => {
     this.props.searchImage(query);
     this.props.getImages({
-      query: this.props.search,
+      query: query,
       pageNo: 1,
       path: SEARCHURLPATH,
     });
@@ -44,14 +43,14 @@ class Search extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <section className="SearchComponent">
         <SearchQuery query={this.getSearchResults} />
         <ImageComponent
           {...this.props}
           path={SEARCHURLPATH}
           search={this.props.search}
         />
-      </React.Fragment>
+      </section>
     );
   }
 }
