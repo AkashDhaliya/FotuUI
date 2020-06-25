@@ -1,4 +1,4 @@
-.images-section {
+.Img-section {
   display: flex;
   background: $black;
   flex-wrap: wrap;
@@ -45,7 +45,7 @@
       
       &:hover {
         color:$offwhite;
-        background-color: #1f85de;
+        background-color:$lightblue;
       }
     }
   }

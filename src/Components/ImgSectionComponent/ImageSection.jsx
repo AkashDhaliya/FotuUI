@@ -30,7 +30,7 @@ class ImageSection extends React.Component {
   render() {
     if (this.props.photosList.length !== 0) {
       return (
-        <section className="images-section" onScroll={this.loadImages}>
+        <section className={this.props.parent === RANDOM_IMG?"randomImg-section":"Img-section"} onScroll={this.loadImages}>
           <Download
             link={this.props.download}
             resetLink={this.props.downloadImg}
@@ -41,7 +41,7 @@ class ImageSection extends React.Component {
                 <img
                   src={
                     this.props.parent === RANDOM_IMG
-                      ? item.urls.regular
+                      ? item.urls.small
                       : item.urls.small
                   }
                   alt={item.alt_description}
