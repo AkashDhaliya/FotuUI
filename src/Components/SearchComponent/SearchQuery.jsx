@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import "./Search.css";
 
 function SearchQuery(props) {
   const [searchValue, setSearchValue] = useState("");
@@ -37,7 +36,7 @@ function SearchQuery(props) {
 
   return (
     <section>
-      <div className="Search-section">
+      <div className="search-section">
         <span className="search-icon-span">
           <FiSearch onClick={submitSearch} />
         </span>
@@ -46,7 +45,6 @@ function SearchQuery(props) {
           onChange={(e)=>setSearchValue(e.target.value)}
           maxLength="50"
           autoComplete="off"
-          className="Search-Query"
           type="text"
           value={searchValue}
           placeholder="Search photos here.."

@@ -8,3 +8,8 @@
     clear: both;
   }
 }
+
+@mixin imgDivSize($qty,$padding){
+    width: ((100% - (($qty) * $padding))/$qty);
+    height: 300px;
+}

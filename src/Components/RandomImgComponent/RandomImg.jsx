@@ -1,9 +1,11 @@
 import React from "react";
 import Loading from "../LoadingComponent/Loading";
+import ImageComponent from "../ImgSectionComponent/ImageSection";
+import {RANDOM_IMG} from "../../Constants/Const";
 import { FiDownload } from "react-icons/fi";
 import { FaSyncAlt } from "react-icons/fa";
 import Download from "../DownloadComponent/Download";
-import "./RandomImg.css";
+
 import {
   getImages,
   fetchStatus,
@@ -41,34 +43,37 @@ class RandomImg extends React.Component {
   };
 
   render() {
-    return this.props.randomImg.length !== 0 ? (
-      <section className="images-section randomImg">
-        <Download
-          link={this.props.download}
-          resetLink={this.props.downloadImg}
+    return this.props.photosList.length !== 0 ? (
+      <ImageComponent
+          {...this.props} parent={RANDOM_IMG}
         />
-        <div className="randomImg-header-btns">
-          <span>
-            <button title="refresh" onClick={this.fetchData}>
-              <FaSyncAlt />
-            </button>
-            <button
-              title="Download"
-              link={this.props.randomImg.links.download}
-              onClick={this.downloadImage}
-            >
-              <FiDownload />
-            </button>
-          </span>
-        </div>
-        <div className="random-flex-image">
-          <img
-            src={this.props.randomImg.urls.regular}
-            alt={this.props.randomImg.alt_description}
-            title={this.props.randomImg.alt_description}
-          ></img>
-        </div>
-      </section>
+      // <section className="images-section randomImg">
+      //   <Download
+      //     link={this.props.download}
+      //     resetLink={this.props.downloadImg}
+      //   />
+      //   <div className="randomImg-header-btns">
+      //     <span>
+      //       <button title="refresh" onClick={this.fetchData}>
+      //         <FaSyncAlt />
+      //       </button>
+      //       <button
+      //         title="Download"
+      //         link={this.props.randomImg.links.download}
+      //         onClick={this.downloadImage}
+      //       >
+      //         <FiDownload />
+      //       </button>
+      //     </span>
+      //   </div>
+      //   <div className="random-flex-image">
+      //     <img
+      //       src={this.props.randomImg.urls.regular}
+      //       alt={this.props.randomImg.alt_description}
+      //       title={this.props.randomImg.alt_description}
+      //     ></img>
+      //   </div>
+      // </section>
     ) : (
       <Loading />
     );

@@ -43,14 +43,14 @@ class Search extends React.Component {
 
   render() {
     return (
-      <section className="SearchComponent">
+      <React.Fragment>
         <SearchQuery query={this.getSearchResults} />
         <ImageComponent
           {...this.props}
           path={SEARCHURLPATH}
           search={this.props.search}
         />
-      </section>
+      </React.Fragment>
     );
   }
 }

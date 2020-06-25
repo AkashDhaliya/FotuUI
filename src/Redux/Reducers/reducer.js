@@ -35,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
     case RANDOM_IMG:
       return {
         ...state,
-        randomImg: action.payload.data,
+        photosList: [action.payload.data],
         isFetching: false,
       };
 

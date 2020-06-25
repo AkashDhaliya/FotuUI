@@ -4,6 +4,8 @@ nav {
     background-color: darken($blue, 15%);
     position: fixed;
     width: -webkit-fill-available;
+    z-index: 2;
+
     .Container {
       width: 95%;
       margin: auto;
@@ -23,15 +25,15 @@ nav {
       }
 
       ul li {
-        padding: 12px;
+        padding: 1%;
         float: right;
 
         &:hover a {
-          color: $aliceBlue;
+          color: $aliceblue;
         }
 
         a.active {
-          color: $aliceBlue;
+          color: $aliceblue;
         }
       }
 

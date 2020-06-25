@@ -1,12 +1,11 @@
 import React from "react";
 import Loading from "../LoadingComponent/Loading";
 import Download from "../DownloadComponent/Download";
-import "./ImageSection.css";
+import { RANDOM_IMG } from "../../Constants/Const";
 import { FiDownload } from "react-icons/fi";
 import { NO_OF_ITEMS } from "../../Constants/Const";
 
 class ImageSection extends React.Component {
-
   downloadImage = (e) => {
     this.props.downloadImg(e.currentTarget.getAttribute("link"));
   };
@@ -16,13 +15,14 @@ class ImageSection extends React.Component {
     if (
       evt.target.scrollHeight - evt.target.scrollTop < 1200 &&
       this.props.page_no !== pageNo &&
-      !this.props.isFetching
+      !this.props.isFetching &&
+      this.props.parent !== RANDOM_IMG
     ) {
       this.props.fetchStatus();
       this.props.getImages({
         query: this.props.search,
         pageNo: pageNo,
-        path: this.props.path
+        path: this.props.path,
       });
     }
   };
@@ -39,20 +39,26 @@ class ImageSection extends React.Component {
             return (
               <div key={item.id} className="flex-images">
                 <img
-                  src={item.urls.small}
+                  src={
+                    this.props.parent === RANDOM_IMG
+                      ? item.urls.regular
+                      : item.urls.small
+                  }
                   alt={item.alt_description}
                   title={item.alt_description}
                   width="100%"
                   height="100%"
                 ></img>
-                <button
-                  link={item.links.download}
-                  className="download-photo"
-                  onClick={this.downloadImage}
-                  title="Download"
-                >
-                  <FiDownload />
-                </button>
+                {this.props.parent !== RANDOM_IMG && (
+                  <button
+                    link={item.links.download}
+                    className="download-photo"
+                    onClick={this.downloadImage}
+                    title="Download"
+                  >
+                    <FiDownload />
+                  </button>
+                )}
               </div>
             );
           })}
