@@ -1,7 +1,7 @@
 .randomImg-header-btns {
   position: absolute;
   right: 2.4%;
-  top: 25%;
+  top: 13%;
 
   button {
     background-color: $offwhite;
@@ -23,7 +23,7 @@
   flex-wrap: wrap;
   border: 3px solid transparent;
   border-radius: 5px;
-  height: 36rem;
+  height: 35rem;
   width: 95%;
   margin: auto;
   margin-top: 6%;
@@ -37,8 +37,7 @@
   }
 
   .flex-images {
-    height: 36rem !important;
-    display: block !important;
+    height: inherit!important;
 
     img {
       object-fit: contain;

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Download.css";
 import { CLIENT_ID } from "../../Constants/Const";
 
 class Download extends React.Component {

@@ -10,6 +10,7 @@ import {
   getImages,
   fetchStatus,
   downloadImg,
+  resetData,
 } from "../../Redux/Actions/actions";
 import { connect } from "react-redux";
 import { RANDOMURLPATH } from "../../Constants/Const";
@@ -22,11 +23,17 @@ const mapDispatchToProps = (dispatch) => ({
   getImages: (param) => dispatch(getImages(param)),
   fetchStatus: () => dispatch(fetchStatus()),
   downloadImg: (id) => dispatch(downloadImg(id)),
+  resetData: () => dispatch(resetData()),
 });
 
 class RandomImg extends React.Component {
   componentDidMount() {
+    this.props.resetData();
     this.fetchData();
+  }
+
+  componentWillUnmount() {
+    this.props.resetData();
   }
 
   fetchData = async () => {
@@ -50,18 +57,16 @@ class RandomImg extends React.Component {
           resetLink={this.props.downloadImg}
         />
         <div className="randomImg-header-btns">
-          {/* <span> */}
-            <button title="refresh" onClick={this.fetchData}>
-              <FaSyncAlt />
-            </button>
-            <button
-              title="Download"
-              link={this.props.photosList[0].links.download}
-              onClick={this.downloadImage}
-            >
-              <FiDownload />
-            </button>
-          {/* </span> */}
+          <button title="refresh" onClick={this.fetchData}>
+            <FaSyncAlt />
+          </button>
+          <button
+            title="Download"
+            link={this.props.photosList[0].links.download}
+            onClick={this.downloadImage}
+          >
+            <FiDownload />
+          </button>
         </div>
         <ImageComponent {...this.props} parent={RANDOM_IMG} />
       </>

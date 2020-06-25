@@ -1,9 +1,8 @@
 import React from "react";
-import './Loading.css';
 
 function Loading() {
   return (
-    <section className="images-section LoadingImg">
+    <section className="Img-section LoadingImg">
       <div>
         <img src={require("../../Waiting-Logo.gif")} alt="Loading" />
       </div>
