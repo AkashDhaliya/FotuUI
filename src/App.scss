@@ -1,0 +1,17 @@
+@import './SASS/Modules/variables';
+@import './SASS/Modules/mixins';
+@import './SASS/Modules/navigation';
+@import './SASS/Modules/imageComponent';
+@import './SASS/Modules/footer';
+
+.App {
+  text-align: center;
+  background: repeating-linear-gradient(21deg, aquamarine, transparent 50%);
+  overflow: auto;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family;
+}
