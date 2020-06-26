@@ -1,0 +1,46 @@
+nav {
+  header & {
+    color: $offwhite;
+    background-color: darken($blue, 15%);
+    position: fixed;
+    width: -webkit-fill-available;
+    z-index: 2;
+
+    .Container {
+      width: 95%;
+      margin: auto;
+      .app-header {
+        float: left;
+        h1 {
+          margin: 0;
+          padding: 0;
+          font-size: 2.5rem;
+        }
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @include clearfix;
+      }
+
+      ul li {
+        padding: 1%;
+        float: right;
+
+        &:hover a {
+          color: $aliceblue;
+        }
+
+        a.active {
+          color: $aliceblue;
+        }
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: $offwhite;
+      }
+    }
+  }
+}

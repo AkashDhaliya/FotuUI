@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*Application Header CSS*/
+
+.Fotu-header {
+  display: flex;
+  width: 100%;
+  background-color: #282c34;
+  align-items: flex-end;
+  position: fixed;
+  justify-content: flex-start;
+  font-size: calc(20px + 2vmin);
+  color: white;
+  z-index: 2;
+  border-bottom: 2px solid #fff;
+}
+
+.Fotu-header p {
+  margin: 10px;
+  font-family: sans-serif;
+}
+
+.header-nav-items {
+  position: fixed;
+  top: 35px;
+  right: 30px;
+  z-index: 2;
+}
+
+.header-nav-items > nav > ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  font-size: calc(8px + 1vmin);
+  color: black;
+}
+
+.header-nav-items > nav > ul > li .active {
+  border: 2px solid;
+  border-color: #dee2e6 #dee2e6 #fff;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.header-nav-items > nav > ul > li > a {
+  color: white;
+  text-transform: none;
+  text-decoration: none;
+  transition: 0.1s;
+  padding: 0.2rem 1rem;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.Fotu-footer {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+}
+
+.Fotu-footer > div {
+  margin: auto;
+}

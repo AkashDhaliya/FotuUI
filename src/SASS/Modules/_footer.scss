@@ -1,0 +1,11 @@
+footer {
+  background-color: darken($blue, 15%);
+  p {
+    color: $offwhite;
+    padding: 5px;
+    margin: 0;
+    a {
+      color: $offwhite;
+      text-decoration: none;    }
+  }
+}

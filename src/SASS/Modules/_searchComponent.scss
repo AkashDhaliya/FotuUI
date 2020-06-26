@@ -1,0 +1,27 @@
+.search-section {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+
+  span {
+    padding: 0.5rem.5rem 0.5rem 0;
+    color: $lightblue;
+    font-size: calc(14px + 1vmin);
+  }
+
+  input {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 0.125rem solid $lightblue;
+    width: -webkit-fill-available;
+    outline: none;
+    font-size: calc(14px + 1vmin);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.searchImg {
+  margin-top: 2% !important;
+}
