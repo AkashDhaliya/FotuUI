@@ -1,6 +1,21 @@
 import React from "react";
 import { CLIENT_ID } from "../../Constants/Const";
 
+const downloadSizes = [
+  {
+    name: "Small",
+    size: 640,
+  },
+  {
+    name: "Medium",
+    size: 640,
+  },
+  {
+    name: "Large",
+    size: 640,
+  },
+];
+
 class Download extends React.Component {
   constructor(props) {
     super(props);
@@ -13,26 +28,28 @@ class Download extends React.Component {
     window.addEventListener("click", this.windowOnClick);
   }
 
-  componentDidUpdate(prevProps){
-    if (this.props.link !== undefined && this.props.link.length !== 0 && prevProps.link!==this.props.link) {
+  componentDidUpdate(prevProps) {
+    console.log("Inside Cpm update");
+    if (
+      this.props.link !== undefined &&
+      this.props.link.length !== 0 &&
+      prevProps.link !== this.props.link
+    ) {
       let link = `${this.props.link}?client_id=${CLIENT_ID}`;
       let items = (
         <ul>
-          <li>
-            <a href={link + "640"} download target="_blank" rel="noopener noreferrer nofollow">
-              Small
-            </a>
-          </li>
-          <li>
-            <a href={link + "1920"} download target="_blank" rel="noopener noreferrer nofollow">
-              Medium
-            </a>
-          </li>
-          <li>
-            <a href={link + "2400"} download target="_blank" rel="noopener noreferrer nofollow">
-              Large
-            </a>
-          </li>
+          {downloadSizes.map((item) => (
+            <li key={item.name}>
+              <a
+                href={link + item.size}
+                download
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
         </ul>
       );
       this.setState({ listOfSize: items }, this.toggleModle);
@@ -52,6 +69,7 @@ class Download extends React.Component {
   };
 
   render() {
+    console.log("Inside render");
     return (
       <div className="modal">
         <div className="modal-content">

@@ -2,9 +2,7 @@ import React from "react";
 import Loading from "../LoadingComponent/Loading";
 import ImageComponent from "../ImgSectionComponent/ImageSection";
 import { RANDOM_IMG } from "../../Constants/Const";
-import { FiDownload } from "react-icons/fi";
 import { FaSyncAlt } from "react-icons/fa";
-import Download from "../DownloadComponent/Download";
 
 import {
   getImages,
@@ -52,22 +50,9 @@ class RandomImg extends React.Component {
   render() {
     return this.props.photosList.length !== 0 ? (
       <>
-        <Download
-          link={this.props.download}
-          resetLink={this.props.downloadImg}
-        />
-        <div className="randomImg-header-btns">
-          <button title="refresh" onClick={this.fetchData}>
-            <FaSyncAlt />
-          </button>
-          <button
-            title="Download"
-            link={this.props.photosList[0].links.download}
-            onClick={this.downloadImage}
-          >
-            <FiDownload />
-          </button>
-        </div>
+        <button className="refreshImg" title="refresh" onClick={this.fetchData}>
+          <FaSyncAlt />
+        </button>
         <ImageComponent {...this.props} parent={RANDOM_IMG} />
       </>
     ) : (

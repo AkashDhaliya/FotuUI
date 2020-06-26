@@ -49,7 +49,7 @@ class ImageSection extends React.Component {
                   width="100%"
                   height="100%"
                 ></img>
-                {this.props.parent !== RANDOM_IMG && (
+                {/* {this.props.parent !== RANDOM_IMG && ( */}
                   <button
                     link={item.links.download}
                     className="download-photo"
@@ -58,7 +58,7 @@ class ImageSection extends React.Component {
                   >
                     <FiDownload />
                   </button>
-                )}
+                {/* )} */}
               </div>
             );
           })}

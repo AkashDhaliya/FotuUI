@@ -1,19 +1,15 @@
-.randomImg-header-btns {
+.refreshImg {
   position: absolute;
-  right: 2.4%;
+  right: 5.3%;
   top: 13%;
-
-  button {
-    background-color: $offwhite;
-    color: $black;
-    border: 2px solid transparent;
-    margin: 0px 2px;
-    border-radius: 2px;
-    outline: none;
-    &:hover {
-      color: $offwhite;
-      background-color: $lightblue;
-    }
+  background-color: $offwhite;
+  color: $black;
+  border: 2px solid transparent;
+  border-radius: 20%;
+  outline: none;
+  &:hover {
+    color: $offwhite;
+    background-color: $lightblue;
   }
 }
 
@@ -37,10 +33,26 @@
   }
 
   .flex-images {
-    height: inherit!important;
+    height: inherit !important;
 
     img {
       object-fit: contain;
+    }
+
+    .download-photo {
+      background-color: $offwhite;
+      color: $black;
+      border: 2px solid transparent;
+      border-radius: 20%;
+      position: absolute;
+      right: 2.7%;
+      top: 13%;
+      outline: none;
+
+      &:hover {
+        color: $offwhite;
+        background-color: $lightblue;
+      }
     }
   }
 }
