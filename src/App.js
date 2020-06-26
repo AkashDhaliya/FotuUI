@@ -3,7 +3,7 @@ import "./App.scss";
 import Home from "./Components/HomeComponent/Home";
 import Search from "./Components/SearchComponent/Search";
 import RandomImg from "./Components/RandomImgComponent/RandomImg";
-import Chat from "./Components/ChatComponent/Chat";
+//import Chat from "./Components/ChatComponent/Chat";
 import Header from "./Components/HeaderComponent/Header";
 import Footer from "./Components/FooterComponent/Footer";
 

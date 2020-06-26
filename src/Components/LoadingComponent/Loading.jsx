@@ -2,7 +2,6 @@ import React from "react";
 import { RANDOM_IMG, SEARCH_IMAGE } from "../../Constants/Const";
 
 function Loading(props) {
-  console.log(props);
   return (
     <section
       className={

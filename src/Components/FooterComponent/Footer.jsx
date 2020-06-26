@@ -7,7 +7,7 @@ function Footer() {
         
         <p>Everyone is photogenic. :)</p>
         <p>
-          Images source <a href="https://unsplash.com/">Unsplash&nbsp;</a>
+          Images source <a href="https://unsplash.com/"><strong>Unsplash&nbsp;</strong></a>
         </p>
       </div>
     </footer>
