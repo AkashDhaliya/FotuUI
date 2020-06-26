@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import ImageComponent from "../ImgSectionComponent/ImageSection";
-import { getImages,fetchStatus,downloadImg } from "../../Redux/Actions/actions";
+import { getImages,fetchStatus,downloadImg,resetData } from "../../Redux/Actions/actions";
 import {LISTURLPATH} from "../../Constants/Const";
 
 const mapStateToProps = (state) => ({
@@ -11,17 +11,21 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getImages: (param) => dispatch(getImages(param)),
   fetchStatus: () => dispatch(fetchStatus()),
-  downloadImg:(id)=>dispatch(downloadImg(id))
+  downloadImg:(id)=>dispatch(downloadImg(id)),
+  resetData: () => dispatch(resetData()),
 });
 
 class Home extends Component {
 
   componentDidMount() {
-    this.props.getImages({
+    setTimeout(() => {
+      this.props.getImages({
         query: this.props.search,
         pageNo: 1,
         path:LISTURLPATH
-      });
+      })
+    }, 500)
+    ;
   }
 
   render() {

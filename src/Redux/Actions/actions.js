@@ -22,7 +22,7 @@ export const fetchStatus = () => {
   };
 };
 
-export const resetData = () => {
+export const  resetData= () => {
   return {
     type: RESET_DATA,
     payload: [],

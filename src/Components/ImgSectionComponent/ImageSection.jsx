@@ -1,7 +1,7 @@
 import React from "react";
 import Loading from "../LoadingComponent/Loading";
 import Download from "../DownloadComponent/Download";
-import { RANDOM_IMG } from "../../Constants/Const";
+import { RANDOM_IMG, SEARCH_IMAGE } from "../../Constants/Const";
 import { FiDownload } from "react-icons/fi";
 import { NO_OF_ITEMS } from "../../Constants/Const";
 
@@ -30,7 +30,16 @@ class ImageSection extends React.Component {
   render() {
     if (this.props.photosList.length !== 0) {
       return (
-        <section className={this.props.parent === RANDOM_IMG?"randomImg-section":"Img-section"} onScroll={this.loadImages}>
+        <section
+          className={
+            this.props.parent === RANDOM_IMG
+              ? "randomImg"
+              : this.props.parent === SEARCH_IMAGE
+              ? "searchImg Img-section"
+              : "Img-section"
+          }
+          onScroll={this.loadImages}
+        >
           <Download
             link={this.props.download}
             resetLink={this.props.downloadImg}
@@ -49,23 +58,22 @@ class ImageSection extends React.Component {
                   width="100%"
                   height="100%"
                 ></img>
-                {/* {this.props.parent !== RANDOM_IMG && ( */}
-                  <button
-                    link={item.links.download}
-                    className="download-photo"
-                    onClick={this.downloadImage}
-                    title="Download"
-                  >
-                    <FiDownload />
-                  </button>
-                {/* )} */}
+
+                <button
+                  link={item.links.download}
+                  className="download-photo"
+                  onClick={this.downloadImage}
+                  title="Download"
+                >
+                  <FiDownload />
+                </button>
               </div>
             );
           })}
         </section>
       );
     } else {
-      return <Loading />;
+      return <Loading parent={this.props.parent} />;
     }
   }
 }

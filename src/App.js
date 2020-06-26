@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/search" component={Search}></Route>
           <Route exact path="/random" component={RandomImg}></Route>
-          <Route exact path="/chat" component={Chat}></Route>
+          {/* <Route exact path="/chat" component={Chat}></Route> */}
         </Switch>
         <Footer />
       </Router>

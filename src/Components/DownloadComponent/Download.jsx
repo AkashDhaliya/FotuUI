@@ -28,8 +28,7 @@ class Download extends React.Component {
     window.addEventListener("click", this.windowOnClick);
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("Inside Cpm update");
+  componentDidUpdate(prevProps) { 
     if (
       this.props.link !== undefined &&
       this.props.link.length !== 0 &&
@@ -69,7 +68,6 @@ class Download extends React.Component {
   };
 
   render() {
-    console.log("Inside render");
     return (
       <div className="modal">
         <div className="modal-content">

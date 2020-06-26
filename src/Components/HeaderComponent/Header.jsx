@@ -10,11 +10,11 @@ function Header() {
             <h1>FOTU</h1>
           </div>
           <ul>
-            <li>
+            {/* <li>
               <NavLink exact activeClassName="active" to="/chat">
                 Message us
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink exact activeClassName="active" to="/random">
                 Random

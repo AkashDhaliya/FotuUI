@@ -1,6 +1,4 @@
 import React from "react";
-import Loading from "../LoadingComponent/Loading";
-import "./Chat.css";
 
 class Chat extends React.Component {
   constructor(props) {
@@ -12,10 +10,9 @@ class Chat extends React.Component {
   render() {
     return (
       <>
-        <Loading />
         <div className="chat-Box-container">
           <h3>Need Help?</h3>
-          <div className="chat-Box">
+          <div>
             <li>Hello</li>
             <li>I am here</li>
             <li>What are you doing</li>

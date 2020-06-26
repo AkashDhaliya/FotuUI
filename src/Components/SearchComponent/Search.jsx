@@ -9,7 +9,7 @@ import {
   searchImage,
 } from "../../Redux/Actions/actions";
 import { connect } from "react-redux";
-import { SEARCHURLPATH } from "../../Constants/Const";
+import { SEARCHURLPATH ,SEARCH_IMAGE } from "../../Constants/Const";
 
 const mapStateToProps = (state) => {
   return state;
@@ -49,6 +49,7 @@ class Search extends React.Component {
           {...this.props}
           path={SEARCHURLPATH}
           search={this.props.search}
+          parent={SEARCH_IMAGE}
         />
       </React.Fragment>
     );
