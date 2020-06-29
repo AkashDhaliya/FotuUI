@@ -63,7 +63,7 @@ export function getImages(param) {
           });
       },
       (error) => {
-        dispatch({ type: ERROR_OCCURRED, payload: error });
+        dispatch({ type: ERROR_OCCURRED });
       }
     );
   };

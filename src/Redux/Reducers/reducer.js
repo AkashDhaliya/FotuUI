@@ -14,6 +14,7 @@ let initialState = {
   download: "",
   isFetching: false,
   randomImg: [],
+  isError:false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,6 +31,7 @@ const rootReducer = (state = initialState, action) => {
         photosList: imgs,
         page_no: action.payload.pageNo,
         isFetching: false,
+        isError: false,
       };
 
     case RANDOM_IMG:
@@ -37,6 +39,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         photosList: [action.payload.data],
         isFetching: false,
+        isError: false,
       };
 
     case RESET_DATA:
@@ -68,7 +71,7 @@ const rootReducer = (state = initialState, action) => {
     case ERROR_OCCURRED:
       return {
         ...state,
-        error_details: action.payload,
+        isError: true,
       };
 
     default:

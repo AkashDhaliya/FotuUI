@@ -56,7 +56,7 @@ class RandomImg extends React.Component {
         <ImageComponent {...this.props} parent={RANDOM_IMG} />
       </>
     ) : (
-      <Loading />
+      <Loading {...this.props} parent={RANDOM_IMG} />
     );
   }
 }

@@ -73,7 +73,7 @@ class ImageSection extends React.Component {
         </section>
       );
     } else {
-      return <Loading parent={this.props.parent} />;
+      return <Loading {...this.props} parent={this.props.parent} />;
     }
   }
 }

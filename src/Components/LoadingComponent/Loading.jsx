@@ -14,6 +14,11 @@ function Loading(props) {
     >
       <div>
         <img src={require("../../Waiting-Logo.gif")} alt="Loading" />
+        {props.isError && (
+          <p>
+            Some error occurred.Please click <a>here</a> or refresh the page
+          </p>
+        )}
       </div>
     </section>
   );
