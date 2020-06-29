@@ -4,6 +4,21 @@
   margin: auto;
   margin-top: 5%;
 
+  @media screen and (max-width:$small){
+    width: 80%;
+    margin-top: 60px;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $mid-medium){
+    width: 80%;
+    margin-top: 60px;
+  }
+
+  @media screen and (min-width: $mid-medium) and (max-width: $large){
+    width: 75%;
+    margin-top: 70px;
+  }
+
   span {
     padding: 0.5rem.5rem 0.5rem 0;
     color: $lightblue;
