@@ -9,7 +9,7 @@ import {
   searchImage,
 } from "../../Redux/Actions/actions";
 import { connect } from "react-redux";
-import { SEARCHURLPATH ,SEARCH_IMAGE } from "../../Constants/Const";
+import { SEARCHURLPATH, SEARCH_IMAGE } from "../../Constants/Const";
 
 const mapStateToProps = (state) => {
   return state;
@@ -33,6 +33,7 @@ class Search extends React.Component {
   }
 
   getSearchResults = (query) => {
+    this.props.resetData();
     this.props.searchImage(query);
     this.props.getImages({
       query: query,

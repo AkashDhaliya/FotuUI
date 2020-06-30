@@ -4,6 +4,9 @@ footer {
     color: $offwhite;
     padding: 5px;
     margin: 0;
+    @media screen and (max-width: $large){
+      font-size: calc(18px + 1vmin);
+    }
     a {
       color: $offwhite;
       text-decoration: none;    }

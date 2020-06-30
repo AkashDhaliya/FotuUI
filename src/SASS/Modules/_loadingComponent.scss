@@ -6,5 +6,11 @@
   div {
     margin: auto;
     width: -webkit-fill-available;
+
+    img{
+      @media screen and (max-width:$medium){
+        width: 100%;
+      }
+    }
   }
 }

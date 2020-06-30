@@ -28,6 +28,16 @@ nav {
         padding: 1%;
         float: right;
 
+        @media screen and (max-width:$small){
+          padding: 14px;
+          font-size: calc(14px + 1vmin);
+        }
+
+        @media screen and (min-width: $small) and (max-width: $large){
+          padding: 14px;
+          font-size: calc(18px + 1vmin);
+        }
+
         &:hover a {
           color: $aliceblue;
         }

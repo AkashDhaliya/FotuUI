@@ -50,7 +50,7 @@ class ImageSection extends React.Component {
                 <img
                   src={
                     this.props.parent === RANDOM_IMG
-                      ? item.urls.small
+                      ? item.urls.regular
                       : item.urls.small
                   }
                   alt={item.alt_description}
@@ -73,7 +73,7 @@ class ImageSection extends React.Component {
         </section>
       );
     } else {
-      return <Loading parent={this.props.parent} />;
+      return <Loading {...this.props} parent={this.props.parent} />;
     }
   }
 }
